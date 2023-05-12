@@ -1,53 +1,275 @@
-Html
+@import url('https://fonts.googleapis.com/css2?family= Wix+Madefor+Text & display =swap');
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100&family=Merriweather:ital,wght@0,300;1,300&family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet">
-   <title>karen-zanetti</title>
-</head>
-<body>
-    <div class="principal-box">
-      <nav>
-        <below>
-        <h1>developer in progress</h1>
-      <img src="tech2.png"> 
-        </below>
-         <h2 class="Portfolio">Portfo<span>lio</span><h2>
-       <ul>
-              <li><a>Home</a></li>
-              <li><a>About</a></li>
-              <li><a>Projects</a></li>
-              <li><a>Contact us</a></li>
-         </ul>
+body{
+margin: 0;
+padding: 0%;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+color: red;
 
-      </nav>
-   
-      <div class="my-name">
-        <h1>Karen <span>Zanetti </span></h1>
-        <h3> developer </h3>
-    </div>
+}
+/*HEADER */
 
- </div>
+.header-container  {
+    height: 100vh;
+    width: 100vw;
+    background-color: aqua;
+    background-image: url(./photos/IMG_3812.JPG);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0 112px;
+    position: relative;
+}
+
+h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.social-media {
+    margin-top: 1rem;
+    display: flex;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: black;
+    padding: 1rem 4rem;
+    border: 1px solid #1e1e2a;
+    min-width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s ease-in-out;
     
- <section>
-   
-  <img src="./img/IMG_3812.JPG">
- 
-  <div> 
- <h2> about me </h2>
- <p>I'm a progressing programmer with many dreams and plans for the future.</p>
- <button>contact me</button>
+}
 
- </div>
- </section>
+a:hover {
+    background-color: plum;
+}
+
+/*MENU HAMBURGUER */
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 400ms ease-in-out 0s;
+}
+
+.checkbox .trace {
+
+    width: 50px;
+    height: 2px;
+    background-color: #1e1e2a;
+    position: absolute;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+}
+
+.checkbox .trace:nth-child(1) {
+    top: 26px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2) {
+    top: 46px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3) {
+    top: 66px;
+    transform: rotate(0);
+}
+
+#toggle { 
+    display: none;
+}
+
+/*MENU */
+
+.menu {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background-color: transparent;
+    height: 4px;
+    width: 10px;
+    border-radius: 50%;
+    box-shadow:  0px 0px 0px 0px red;
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
+
+}
+
+.menu-itens {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in-out 0s;
+
+}
+
+.menu-itens ul {
+    list-style-type: none;
+
+}
+
+.menu-itens ul li a {
+
+    margin: 10px;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 40px;
+}
+
+/*MENU ANIMATION*/
+
+#toggle:checked + .checkbox .trace:nth-child(1) {
+    transform: rotate(45deg);
+    top: 47px
+}
+
+#toggle:checked + .checkbox .trace:nth-child(2) {
+    transform: translate(-100px);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 48px;
+}
+
+#toggle:checked + .checkbox {
+    background-color: whitesmoke;
+}
+
+#toggle:checked ~ .menu{
+    box-shadow: 0px 0px 0px 100vmax whitesmoke;
+    z-index: 1;
+}
+
+#toggle:checked ~ .menu-itens {
+    visibility: visible;
+    opacity: 1;
+}
+/*cards*/
+
+.container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 3rem 0;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    margin: 3rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    background-image: url(./photos/photo3.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: grayscale(0.5);
+    color: black;
+    cursor: pointer;
+    transition: 0,5s ease-in-out;
+}
+
+.card-text {
+    width: 60%;
+    letter-spacing: 1px;
+    color: rgb(red, green, blue);
+}
+
+.card.wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: block;
+    border: 1px solid whitesmoke;
+    opacity: 0;
+    transition: 0,5s ease-in-out;
+}
+
+.card-wrapper h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.card-wrapper p {
+    font-size: 0;
+    visibility: visible;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+}
+
+.card.hover {
+    filter: unset;
+}
 
 
-</body>
-</html>
+
